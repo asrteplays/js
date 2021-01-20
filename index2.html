@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="choices/choices.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="item item-checkbox">
+      <h3>Категории</h3>
+      <label class="item__label" for="dinosaurs">
+        <input class="item-label__input" type="checkbox" name="dinosaurs" id="dinosaurs">
+        Динозавры
+        <span></span>
+      </label>
+      <label class="item__label" for="bears">
+        <input class="item-label__input" type="checkbox" name="bears" id="bears">
+        Медведи
+        <span></span>
+      </label>
+      <label class="item__label" for="roe">
+        <input class="item-label__input" type="checkbox" name="roe" id="roe">
+        Косули
+        <span></span>
+      </label>
+      <label class="item__label" for="foxes">
+        <input class="item-label__input" type="checkbox" name="foxes" id="foxes">
+        Лисы
+        <span></span>
+      </label>
+      <label class="item__label" for="wolves">
+        <input class="item-label__input" type="checkbox" name="wolves" id="wolves">
+        Волки
+        <span></span>
+      </label>
+      <label class="item__label" for="deer">
+        <input class="item-label__input" type="checkbox" name="deer" id="deer">
+        Олени и лоси
+        <span></span>
+      </label>
+    </div>
+
+    <div class="item-select">
+      <select name="select" id="select-custom">
+        <option value="">Материал</option>
+        <option value="Древесина"></option>
+        <option value="Металл"></option>
+        <option value="Камень"></option>
+        <option value="Пластик"></option>
+        <option value="Композитный"></option>
+        <option value="Гипс"></option>
+      </select>
+    </div>
+
+    <div id="map" class="myMap"></div>
+
+    <div class="item-scroll" data-simplebar>
+      Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
+    </div>
+  </div>
+
+
+  <script src="choices/choices.min.js"></script>
+  <script>
+    const element = document.querySelector('#select-custom');
+    const choices = new Choices(element, {
+      searchEnabled: false,
+      placeholder: true,
+      placeholderValue: 'zhopa',
+      shouldSort: false,
+      itemSelectText: ''
+    });
+
+    ymaps.ready(init);
+    function init(){
+      var myMap = new ymaps.Map("map", {
+        center: [48.87219657376512,2.354223999999991],
+        zoom: 15
+      });
+        
+      var myPlacemark = new ymaps.Placemark([48.87219657376512,2.354223999999991], {}, {
+        iconLayout: 'default#image',
+        iconImageHref: 'mdi_location_on.svg',
+        iconImageSize: [48, 48],
+        iconImageOffset: [-3, -42]
+      });
+
+      myMap.geoObjects.add(myPlacemark); 
+    }
+
+    // function toggle () {
+    //   bigMap = !bigMap;
+  
+    //   if (bigMap) {
+    //       $('#map').removeClass('smallMap');
+    //   } else {
+    //       $('#map').addClass('smallMap');
+    //   }
+    //   if ($('#checkbox').prop('checked')) {
+    //       myMap.container.fitToViewport();
+    //   }
+    // } 
+
+  </script>
+</body>
+</html>
