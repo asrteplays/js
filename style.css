@@ -7,14 +7,14 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  
+
   padding: 0;
   margin: 0;
 }
 
 h3 {
   margin: 0;
-  
+
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -23,7 +23,8 @@ h3 {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 70px 90px;
 
   background: #424242;
@@ -40,6 +41,7 @@ h3 {
   display: flex;
   flex-direction: column;
   padding: 30px 29px;
+  height: 309px;
 }
 
 .item__label {
@@ -184,11 +186,6 @@ h3 {
   right: 16px;
 }
 
-.myMap {
-  width: 460px;
-  height: 460px;
-}
-
 [class*='ground-pane'] {
   filter: grayscale(1);
 }
@@ -207,14 +204,220 @@ h3 {
   overflow: auto;
 }
 
-.simplebar-scrollbar::before {
-  width: 6px;
-  height: 70px;
+.simplebar-track {
+  right: 6px;
+}
 
+.simplebar-track.simplebar-vertical {
+  width: 10px;
+
+  top: 6px;
+}
+
+.simplebar-scrollbar {
+  max-height: 70px;
+}
+
+.simplebar-scrollbar::before {
   background-color: #CCB26E;
   opacity: 1;
 }
 
-/* 
-установка функции обновления (refresh/update), для свайпера и бургера 
+.simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+}
+
+/* form */
+.item-form {
+  width: 440px;
+  min-height: 410px;
+  height: 100%;
+  padding: 0 30px;
+  border-radius: 10px;
+
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 31px;
+
+  position: relative;
+}
+
+.form__item:first-child {
+  margin-top: 38px;
+}
+
+.label {
+  padding-left: 21px;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #FF5C00;
+}
+
+.input {
+  height: 60px;
+  padding: 25px 20px;
+  border: 1px solid #FF5C00;
+  border-radius: 10px;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.input::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #999999;
+}
+
+.form__button {
+  width: 192px;
+  height: 60px;
+  margin-top: 31px;
+  margin-bottom: 39px;
+  padding: 18px 53px;
+  border: 1px solid #FF5C00;
+  border-radius: 10px;
+
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+
+  background-color: #FF5C00;
+  cursor: pointer;
+}
+
+.js-validate-error-label {
+/*  padding-left: 21px;*/
+  order: -1;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+
+  position: absolute;
+  top: -35%;
+  left: 21px;
+}
+
+
+/* tooltip */
+.item-tooltip {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  width: 375px;
+  margin-bottom: 29px;
+  padding: 20px 78px 20px 29px;
+
+  font-size: 14px;
+  color: #333333;
+
+  background-color: #fff;
+}
+
+.tooltip {
+  display: inline-block;
+
+  position: relative;
+}
+
+.marker {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  background-color: #BCBCBC;
+  cursor: pointer;
+
+  position: relative;
+
+  transition: background-color .3s ease-in-out;
+}
+
+.marker:hover,
+.marker:focus {
+  background-color: #CCB26E;
+}
+
+.marker:hover + .popup,
+.marker:focus + .popup {
+  opacity: 1;
+}
+
+.marker::before {
+  content: '';
+  width: 2px;
+  height: 8px;
+
+  background-color: #fff;
+
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+}
+
+.marker::after {
+  content: '';
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+
+  background-color: #fff;
+
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popup {
+  width: max-content;
+  max-width: 163px;
+  height: auto;
+  padding: 7px 15px;
+
+  background-color: #666666;
+  opacity: 0;
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -50%;
+  transform: translateX(-50%) translateY(-100%);
+
+  transition: opacity .3s ease-in-out;
+}
+
+.popup::after {
+    content: " ";
+    margin-left: -5px;
+    border-width: 5px;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    border-style: solid;
+    border-color: #666666 transparent transparent transparent;
+}
+
+/*
+установка функции обновления (refresh/update), для свайпера и бургера
 */

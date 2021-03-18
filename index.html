@@ -3,162 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="choices/choices.min.css">
+
+  <!-- simplebar -->
+  <link rel="stylesheet" href="simplebar.min.css">
+  <script src="js/simplebar.min.js"></script>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
-
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>
-
-  <style>
-    .swiper-container {
-      height: 500px;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center center;
-    }
-  </style>
-
 </head>
 <body>
-
-  <!-- Slider main container -->
-  <div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide" style="background-image: url(img/539040.jpg);"></div>
-        <div class="swiper-slide" style="background-image: url(img/546171.jpg);"></div>
-        <div class="swiper-slide" style="background-image: url(img/587508.png);"></div>
+  <div class="container">
+    <div class="item item-checkbox">
+      <h3>Категории</h3>
+      <label class="item__label" for="dinosaurs">
+        <input class="item-label__input" type="checkbox" name="dinosaurs" id="dinosaurs">
+        Динозавры
+        <span></span>
+      </label>
+      <label class="item__label" for="bears">
+        <input class="item-label__input" type="checkbox" name="bears" id="bears">
+        Медведи
+        <span></span>
+      </label>
+      <label class="item__label" for="roe">
+        <input class="item-label__input" type="checkbox" name="roe" id="roe">
+        Косули
+        <span></span>
+      </label>
+      <label class="item__label" for="foxes">
+        <input class="item-label__input" type="checkbox" name="foxes" id="foxes">
+        Лисы
+        <span></span>
+      </label>
+      <label class="item__label" for="wolves">
+        <input class="item-label__input" type="checkbox" name="wolves" id="wolves">
+        Волки
+        <span></span>
+      </label>
+      <label class="item__label" for="deer">
+        <input class="item-label__input" type="checkbox" name="deer" id="deer">
+        Олени и лоси
+        <span></span>
+      </label>
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
 
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
-    <!-- <div class="swiper-scrollbar"></div> -->
-  </div>
-
-  <script>
-    var mySwiper = new Swiper('.swiper-container', {
-      // Optional parameters
-      // direction: 'vertical',
-      loop: true,
-
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      // scrollbar: {
-      //   el: '.swiper-scrollbar',
-      // },
-
-      effect: 'fade',
-    });
-  </script>
-
-  <div id="accordion">
-    <h3>Section 1</h3>
-    <div>
-      <p>
-      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-      </p>
+    <div class="item-select">
+      <select name="select" id="select-custom">
+        <option value="">Материал</option>
+        <option value="Древесина"></option>
+        <option value="Металл"></option>
+        <option value="Камень"></option>
+        <option value="Пластик"></option>
+        <option value="Композитный"></option>
+        <option value="Гипс"></option>
+      </select>
     </div>
-    <h3>Section 2</h3>
-    <div>
-      <p>
-      Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-      purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-      velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-      suscipit faucibus urna.
-      </p>
+
+    <div id="map" class="myMap" style="width: 460px; height: 460px;"></div>
+
+    <div class="item-scroll" data-simplebar id="item-scroll">
+      Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
+      Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
     </div>
-    <h3>Section 3</h3>
-    <div>
-      <p>
-      Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-      Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-      ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-      lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-      </p>
-      <ul>
-        <li>List item one</li>
-        <li>List item two</li>
-        <li>List item three</li>
-      </ul>
+
+    <div class="item-form">
+      <form action="" class="form">
+        <div class="form__item">
+          <input class="input" type="text" name="name" placeholder="Имя*" data-validate-field='name'>
+        </div>
+        <div class="form__item">
+          <input class="input" type="tel" name="tel" placeholder="Телефон*" data-validate-field='tel' data-validate-rules="phone">
+        </div>
+        <div class="form__item">
+          <input class="input" type="email" name="email" placeholder="E-mail*" data-validate-field='email'>
+        </div>
+        <button class="form__button">Заказать</button>
+      </form>
     </div>
-    <h3>Section 4</h3>
-    <div>
-      <p>
-      Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-      et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-      faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-      mauris vel est.
-      </p>
-      <p>
-      Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-      inceptos himenaeos.
-      </p>
+
+    <div class="item-tooltip">
+      <div class="text">
+        <div>Следует отметить, что социально-экономическое развитие способствует повышению качества переосмысления внешнеэкономических политик.
+          <div class="tooltip">
+            <span class="marker"></span>
+            <div class="popup">Глава 2, страница 176</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- <div id="menu" class="menu is-active">
-    <ul>
-      <li>Menu 1</li>
-      <li>Menu 2</li>
-      <li>Menu 3</li>
-    </ul>
-  </div>
-
-  <div id="burger" class="burger"></div>
-
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-  <p class="text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laboriosam quos esse tempore fugiat quidem voluptatibus itaque eligendi mollitia rem quod dolor reiciendis, veritatis aliquam rerum aut fuga ipsum quam!
-  </p>
-
-  <div class="block"></div> -->
+  <script src="choices/choices.min.js"></script>
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/just-validate.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
